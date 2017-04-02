@@ -1,0 +1,117 @@
+﻿@model IEnumerable<SaveBBService.DataObjects.AlertItem>
+
+@{
+    ViewBag.Title = "Last 10 Activities";
+}
+
+<style>
+    div.pageheader {
+        margin: 10px 3px;
+    }
+</style>
+
+<div class="row pageheader">
+    <div class="col-sm-8">
+        <h2>Last 10 Activities</h2>
+    </div>
+    <div class="col-sm-4">
+        <div style="margin-top: 5px;">
+            @Html.ActionLink("Simulate Flip the Baby", "Create", "AlertItemsMVC", null, new { @class = "btn btn-primary btn-lg" })
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AlertTime)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.AlertValue)*@
+                Position
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.AlertType)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Humidity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeartRate)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Version)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Deleted)
+                </th>
+                <th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @String.Format("{0:G}", item.AlertTime.AddHours(-4))
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.AlertValue)*@
+                    @if (item.AlertValue == "-1")
+                    {
+                        <span>Face Down</span>
+                    }
+                    else
+                    {
+                        <span>Face Up</span>
+                    }
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.AlertType)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Humidity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Temp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeartRate)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Version)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Deleted)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+</div>

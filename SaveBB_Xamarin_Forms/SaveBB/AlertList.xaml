@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				x:Class="SaveBB.AlertList"
+				Title="Azure Alert">
+  <Grid RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <ActivityIndicator Grid.RowSpan="2"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
+  <StackLayout Grid.Row="0" BackgroundColor="#D8E6F0" Spacing="10" Orientation="Horizontal" Padding="15,15,10,0">
+    <Image x:Name="babyIcon" /><Label TextColor="#555555" Text="SaveBB" FontAttributes="Bold" FontSize="18" VerticalTextAlignment="Center" />
+  </StackLayout>
+  <StackLayout Grid.Row="1" BackgroundColor="#D8E6F0" Spacing="20" Padding="10,10,10,5">
+      <Button x:Name="refreshButton" Text="Refresh"></Button>
+      <Image x:Name="babyImage" />
+    </StackLayout>
+  <!--Padding: left, top, right, bottom-->
+    <StackLayout Grid.Row="2" BackgroundColor="#D8E6F0" Padding="20,30,10,5">
+      <Grid>
+        
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout Grid.Column="0" Orientation="Horizontal">
+          <Image x:Name="water" />
+          <Label x:Name="labelHumidity" Text="" />
+        </StackLayout>
+    
+        <StackLayout Grid.Column="1" Orientation="Horizontal">
+          <Image x:Name="heart" />
+          <Label x:Name="lblHRate" Text="Rate: 80 BPM" />
+        </StackLayout>
+
+      </Grid>
+    </StackLayout>
+    
+    <StackLayout Grid.Row="3" BackgroundColor="#D8E6F0" Padding="20,30,10,10">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout Grid.Column="0" Orientation="Horizontal">
+            <Image x:Name="sun" />
+            <Label x:Name="lblRoomTemp" Text="Room Temp: 78 F"/>
+        </StackLayout>
+        
+        <StackLayout  Grid.Column="1" Orientation="Horizontal">
+          <Image x:Name="temp" />
+          <Label x:Name="lblBodyTemp" Text="Body Temp: 96 F" />
+        </StackLayout>
+       
+      </Grid>
+    </StackLayout>
+
+    <StackLayout Grid.Row="4" Grid.RowSpan="2" BackgroundColor="#D8E6F0" Padding="20,100,10,5">
+      <Label x:Name="alertLabel" TextColor="#555555" Text="{Binding AlertValue}" FontAttributes="Italic" FontSize="10" />
+    </StackLayout>
+  
+  </Grid>
+</ContentPage>

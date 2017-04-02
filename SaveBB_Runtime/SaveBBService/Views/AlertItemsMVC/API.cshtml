@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "API";
+    var host = "http://" + ViewData["host"] + "/tables/AlertItem?$filter=phoneNum eq '17321234567'&$orderby=createdAt desc&$top=1";
+}
+
+<h2>API</h2>
+
+<h3>How to get the Latest Record:</h3>
+
+<h4>
+    1. Install tool: <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?utm_source=chrome-ntp-icon" >Postman</a>
+</h4>
+
+@*GET http://xyz.azurewebsites.net/tables/AlertItem?$filter=phoneNum eq '17321234567'&$orderby=createdAt desc&$top=1*@
+<h4>2. Request Url:</h4>
+<code>
+    GET @host
+</code>
+
+<h4>3. Configure Postman like the following:</h4>
+<img src="~/Images/GETSIMDATA.png" />
