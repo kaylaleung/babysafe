@@ -1,4 +1,4 @@
-# SaveBB Congressional App Competiton 
+# BabySafe Technovation - Stanford OHS Girls Can Code Senior Team
 
 ## SaveBB_Runtime - Mobile App Backend (Cloud side)
 
